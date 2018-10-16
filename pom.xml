@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mkyong.common</groupId>
+  <artifactId>SpringExample</artifactId>
+  <packaging>jar</packaging>
+  <version>2.0.0</version>
+  <name>SpringExample</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Spring framework -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring</artifactId>
+		<version>2.5.6</version>
+	</dependency> 
+  </dependencies>
+	<build>
+    <plugins>   
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>cobertura-maven-plugin</artifactId>
+            <version>2.5.2</version>
+        </plugin>   
+    </plugins>
+</build>
+	<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>cobertura-maven-plugin</artifactId>
+            <version>2.5.2</version>
+            <configuration>
+                <check></check>
+                <formats>
+                    <format>html</format>
+                    <format>xml</format>
+                </formats>
+            </configuration>
+        </plugin>
+    </plugins>
+</reporting>
+<profiles>
+	<profile>
+     <id>xyz-deploy</id>
+ <distributionManagement>
+    <repository>
+      <id>xyz-releases</id>
+      <name>xyz-releases</name>
+      <url>http://ec2-18-188-238-195.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/xyz-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>xyz-snapshots</id>
+      <name>xyz-snapshots</name>
+      <url>http://ec2-18-188-238-195.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/xyz-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</profile>
+	
+<profile>
+     <id>spring-deploy</id>
+ <distributionManagement>
+    <repository>
+      <id>spring-releases</id>
+      <name>spring-releases</name>
+      <url>http://ec2-18-219-56-43.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/spring-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>spring-snapshot</id>
+      <name>spring-snapshot</name>
+      <url>http://ec2-18-219-56-43.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/spring-snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</profile>
+	<profile>
+     <id>vcard-deploy</id>
+ <distributionManagement>
+    <repository>
+      <id>vcard-releases</id>
+      <name>vcard-releases</name>
+      <url>http://ec2-13-59-49-243.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/vcard-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>vcard-snapshots</id>
+      <name>vcard-snapshots</name>
+      <url>http://ec2-13-59-49-243.us-east-2.compute.amazonaws.com:8081/nexus/content/repositories/vcard-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</profile>
+  </profiles>
+</project>
