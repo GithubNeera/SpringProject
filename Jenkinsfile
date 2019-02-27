@@ -3,8 +3,9 @@ node('mavenlabel') {
    
    
    stage('Preparation') { // for display purpos
+      git branch: '$(Branch)', credentialsId: 'GithubLogin', url: 'https://github.com/GithubNeera/SpringProject.git'
       
-      git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+      //git 'https://github.com/jglick/simple-maven-project-with-tests.git'
         
       
    }
